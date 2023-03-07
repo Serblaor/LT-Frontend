@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.uno{
+    display: flex;
+    flex-direction: column;
+}
+
+.pry{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0;
+
+}
+.label{
+    margin-top: 10rem;
+    border-radius: 3rem;
+}
+.carousel-img {
+    width: 110%;
+    
+  }
+.saludo{
+    font-size: 3rem;
+    margin-top: 2rem;
+    text-align: center;
+}

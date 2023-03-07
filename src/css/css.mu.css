@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.uno{
+    display: flex;
+    flex-direction: column;
+}
+
+.pry{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0;
+
+}
+.pry2{
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    margin-top: 2rem;
+
+}
+
+
+.nav{
+    background-color: #ffffff; /* Color de fondo del Navbar */
+    color: #000000; /* Color de fuente del Navbar */
+    width: 100%; /* El Navbar ocupa toda la pantalla */
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    cursor: pointer;
+  }
+  .list{
+    margin-top: 10rem;
+display: flex;
+flex-direction: row;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* Color de fondo del Navbar cuando se vuelve pegajoso */
+    color: #000000; /* Color de fuente del Navbar cuando se vuelve pegajoso */
+    z-index: 9999;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Sombra del Navbar cuando se vuelve pegajoso */
+  }
+  .logo {
+    height: 15px; /* Altura de la imagen del logo */
+  }
+  
+.navbar-collapse {
+    display: flex;
+    align-items: center;
+  }
+  @media (max-width: 767px) {
+    .navbar {
+      height: auto; /* Altura automática del Navbar en dispositivos pequeños */
+    }
+  }
+  
+  /* Estilos para el Navbar cuando se vuelve pegajoso */
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+    z-index: 9999;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  }
