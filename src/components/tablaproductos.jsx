@@ -59,7 +59,7 @@ function ProductosTable() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/api/product')
+      .get('http://localhost:9000/api/product')
       .then((response) => setProductos(response.data))
       .catch((error) => console.log(error));
   }, []);
@@ -147,6 +147,9 @@ function ProductosTable() {
         </TableContainer>
         <Button variant="contained" color="primary" onClick={downloadPDF}>
         Descargar PDF
+        </Button>
+        <Button  color="primary" >
+        Enviar a:
         </Button>
       
     </>

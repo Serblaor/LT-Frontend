@@ -4,7 +4,7 @@ const Swal = require('sweetalert2');
 
 async function mostrarProductos() {
     try {
-      const response = await axios.get('http://localhost:3001/api/product', {
+      const response = await axios.get('http://localhost:9000/api/product', {
         params: {
           fields: 'name,category,price,imgURL,company',
         },

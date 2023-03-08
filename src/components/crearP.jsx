@@ -33,7 +33,7 @@ function CrearProductoForm() {
       company: producto.empresa,
     };
     try {
-      const response = await axios.post('http://localhost:3001/api/product', nuevoProducto);
+      const response = await axios.post('http://localhost:9000/api/product', nuevoProducto);
       console.log(response);
       toast.success('Producto guardado correctamente');
     } catch (error) {

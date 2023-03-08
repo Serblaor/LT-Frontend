@@ -13,6 +13,10 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 
+
+import LogoutButton from "./Logout";
+
+
 import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
@@ -101,16 +105,17 @@ function NavBar() {
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Productos
               </Nav.Link>
             </Nav.Item>
-
+           
 
             <Nav.Item className="fork-btn">
               <Button
-                href="/ProductosTable"
+                
                 target="_blank"
                 className="fork-btn-inner"
               > 
                 
-                <AiFillStar style={{ fontSize: "1.1em" }} /> 
+                <AiFillStar style={{ fontSize: "1.1em" }} />
+                <LogoutButton/> 
               </Button>
             </Nav.Item>
           </Nav>

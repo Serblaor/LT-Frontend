@@ -46,7 +46,7 @@ function Formulario() {
     };
 
     // Envía una solicitud POST para crear una nueva compañía
-    axios.post('http://localhost:3001/api/company', formData)
+    axios.post('http://localhost:9000/api/company', formData)
     .then(response => {
       console.log(response.data);
       setOpenSnackbar(true);

@@ -10,7 +10,7 @@ function CompanyList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/company")
+      .get("http://localhost:9000/api/company")
       .then((response) => setCompanies(response.data))
       .catch((error) => console.log(error));
   }, []);

@@ -1,12 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import GoogleLogin from 'react-google-login';
+
 
 import styles from "./styles.module.scss";
 
 const Login = () => {
-  const [inputs, setInputs] = useState({ email: "", password: "" });
+  const [inputs, setInputs] = useState({ email: "", password: "", rememberMe: false });
   const [mensaje, setMensaje] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -27,13 +27,15 @@ const Login = () => {
       };
       setLoading(true);
       await axios
-        .post("http://localhost:3001/login", Usuario)
+        .post("http://localhost:9000/login", Usuario)
         .then((res) => {
           const { data } = res;
           setMensaje(data.mensaje);
           setTimeout(() => {
             setMensaje("");
-            localStorage.setItem("token", data?.usuario.token);
+            if (inputs.rememberMe) {
+              localStorage.setItem("token", data?.usuario.token);
+            }
             navigate(`/welcome`);
           }, 1500);
         })
@@ -44,10 +46,33 @@ const Login = () => {
             setMensaje("");
           }, 1500);
         });
-      setInputs({ email: "", password: "" });
+      setInputs({ email: "", password: "", rememberMe: false });
       setLoading(false);
     }
   };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setLoading(true);
+      axios
+        .get("http://localhost:9000/verifyToken", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then(() => {
+          navigate(`/welcome`);
+        })
+        .catch(() => {
+          localStorage.removeItem("token");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  }, []);
+  
+  
 
   return (
     <>
@@ -113,7 +138,18 @@ const Login = () => {
           </p>
         </form>
       </div>
-
+      <div className={styles.inputContainer}>
+  <div className={styles.left}>
+    <label htmlFor="rememberMe">Recordarme</label>
+    <input
+      onChange={(e) => HandleChange(e)}
+      checked={inputs.rememberMe}
+      name="rememberMe"
+      id="rememberMe"
+      type="checkbox"
+    />
+  </div>
+</div>
       {mensaje && <div className={styles.toast}>{mensaje}</div>}
     </>
   );

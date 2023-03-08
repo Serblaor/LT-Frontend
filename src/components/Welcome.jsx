@@ -15,7 +15,7 @@ const Welcome = () => {
   useEffect(() => {
     if (token) {
       axios
-        .get(`http://localhost:3001/user`, {
+        .get(`http://localhost:9000/user`, {
           headers: {
             token: token,
           },
